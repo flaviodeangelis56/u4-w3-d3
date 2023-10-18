@@ -1,5 +1,7 @@
 package flaviodeangelis.entities;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -22,6 +24,7 @@ public class Evento {
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;
     @OneToMany(mappedBy = "evento")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<Partecipazione> partecipazione;
 
     public Evento() {
